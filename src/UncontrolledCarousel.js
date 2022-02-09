@@ -104,9 +104,9 @@ class UncontrolledCarousel extends Component {
 
 UncontrolledCarousel.propTypes = propTypes;
 UncontrolledCarousel.defaultProps = {
-  controls: true,
+  controls: false,
   indicators: true,
-  autoPlay: true,
+  autoPlay: false,
 };
 
 export default UncontrolledCarousel;
