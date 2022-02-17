@@ -22,7 +22,7 @@ export interface CarouselProps extends CommonCarouselProps {
   previous: () => void;
 }
 
-export interface UncontrolledCarouselProps extends CommonCarouselProps {
+export interface SliderContainerProps extends CommonCarouselProps {
   items: any[];
   next?: () => void;
   previous?: () => void;

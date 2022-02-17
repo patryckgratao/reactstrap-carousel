@@ -13,8 +13,8 @@ export { default as CarouselCaption } from "./lib/CarouselCaption";
 export { CarouselCaptionProps } from "./lib/CarouselCaption";
 
 export {
-  UncontrolledCarousel,
-  UncontrolledCarouselProps,
+  SliderContainer,
+  SliderContainerProps,
 } from "./lib/Uncontrolled";
 import * as Util from "./lib/utils";
 export { Util };

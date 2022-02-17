@@ -18,7 +18,7 @@ const propTypes = {
   goToIndex: PropTypes.func,
 };
 
-class UncontrolledCarousel extends Component {
+class SliderContainer extends Component {
   constructor(props) {
     super(props);
     this.animating = false;
@@ -102,11 +102,11 @@ class UncontrolledCarousel extends Component {
   }
 }
 
-UncontrolledCarousel.propTypes = propTypes;
-UncontrolledCarousel.defaultProps = {
+SliderContainer.propTypes = propTypes;
+SliderContainer.defaultProps = {
   controls: false,
   indicators: true,
   autoPlay: false,
 };
 
-export default UncontrolledCarousel;
+export default SliderContainer;
