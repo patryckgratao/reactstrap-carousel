@@ -73,8 +73,6 @@ class SliderContainer extends Component {
     } = this.props;
     const { activeIndex } = this.state;
 
-    // console.log("props Slider items => ", items);
-
     const slides = items?.map((item) => {
       const key = item.key || item.src;
       return (
