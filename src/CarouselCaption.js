@@ -27,6 +27,7 @@ const CarouselCaption = (props) => {
           style={{
             background: button?.backgroundColor ?? "#fff",
             borderRadius: button?.borderRadius ?? "0",
+            border:  button.borderSize && button.borderColor ?  `${button.borderSize} solid ${button.borderColor}` : 'none',
             fontSize: button?.fontSize ?? "1rem",
             color: button?.textColor ?? "#000",
             fontWeight: button?.decoration === "bold" ? "bold" : "normal",
@@ -39,7 +40,6 @@ const CarouselCaption = (props) => {
             bottom: button?.positionX ?? "0",
             left: button?.positionY ?? "0",
             padding: "0",
-            border: "none",
             boxShadow: "unset",
             display: "flex",
             alignItems: "center",
