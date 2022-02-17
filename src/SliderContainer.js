@@ -89,8 +89,8 @@ class SliderContainer extends Component {
             <img className="d-block w-100" src={item.src} alt={item.altText} />
           )}
           <CarouselCaption
-            button={item.button}
-            text={item.text}
+            buttons={item.buttons}
+            texts={item.texts}
           />
         </CarouselItem>
       );
