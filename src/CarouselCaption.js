@@ -62,7 +62,7 @@ const CarouselCaption = (props) => {
             textDecoration: text?.decoration === "underline" ? "underline" : "none",
             fontStyle: text?.decoration === "italic" ? "italic" : "normal",
             width: text?.width ?? "100%",
-            height: text?.height ?? "40px",
+            height: text?.height ?? "auto",
             position: "absolute",
             bottom: text?.positionX ?? "0",
             left: text?.positionY ?? "0",
