@@ -15,6 +15,6 @@ export { CarouselCaptionProps } from "./lib/CarouselCaption";
 export {
   SliderContainer,
   SliderContainerProps,
-} from "./lib/Uncontrolled";
+} from "./lib/SliderContainer";
 import * as Util from "./lib/utils";
 export { Util };

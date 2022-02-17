@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Carousel from './Carousel';
-import CarouselItem from './CarouselItem';
-import CarouselControl from './CarouselControl';
-import CarouselIndicators from './CarouselIndicators';
-import CarouselCaption from './CarouselCaption';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Carousel from "./Carousel";
+import CarouselItem from "./CarouselItem";
+import CarouselControl from "./CarouselControl";
+import CarouselIndicators from "./CarouselIndicators";
+import CarouselCaption from "./CarouselCaption";
 
 const propTypes = {
   items: PropTypes.array.isRequired,
@@ -40,13 +40,19 @@ class SliderContainer extends Component {
 
   next() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === this.props.items.length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex =
+      this.state.activeIndex === this.props.items.length - 1
+        ? 0
+        : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? this.props.items.length - 1
+        : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
@@ -56,10 +62,20 @@ class SliderContainer extends Component {
   }
 
   render() {
-    const { defaultActiveIndex, autoPlay, indicators, controls, items, goToIndex, ...props } = this.props;
+    const {
+      defaultActiveIndex,
+      autoPlay,
+      indicators,
+      controls,
+      items,
+      goToIndex,
+      ...props
+    } = this.props;
     const { activeIndex } = this.state;
 
-    const slides = items.map((item) => {
+    // console.log("props Slider items => ", items);
+
+    const slides = items?.map((item) => {
       const key = item.key || item.src;
       return (
         <CarouselItem
@@ -67,8 +83,19 @@ class SliderContainer extends Component {
           onExited={this.onExited}
           key={key}
         >
-          <img className="d-block w-100" src={item.src} alt={item.altText} />
-          <CarouselCaption captionText={item.caption} captionHeader={item.header || item.caption} />
+          {item?.imgProps && item?.imgProps?.isLinkable ? (
+            <a href={item?.imgProps?.link} target="_blank">
+              <img className="d-block w-100" src={item.src} alt={item.altText} />
+            </a>
+          ) : (
+            <img className="d-block w-100" src={item.src} alt={item.altText} />
+          )}
+          <CarouselCaption
+            captionText={item.caption}
+            button={item.button}
+            text={item.text}
+            captionHeader={item.header || item.caption}
+          />
         </CarouselItem>
       );
     });
@@ -78,25 +105,32 @@ class SliderContainer extends Component {
         activeIndex={activeIndex}
         next={this.next}
         previous={this.previous}
-        ride={autoPlay ? 'carousel' : undefined}
+        ride={autoPlay ? "carousel" : undefined}
+        autoPlay={false}
         {...props}
       >
-        {indicators && <CarouselIndicators
-          items={items}
-          activeIndex={props.activeIndex || activeIndex}
-          onClickHandler={goToIndex || this.goToIndex}
-        />}
+        {indicators && (
+          <CarouselIndicators
+            items={items}
+            activeIndex={props.activeIndex || activeIndex}
+            onClickHandler={goToIndex || this.goToIndex}
+          />
+        )}
         {slides}
-        {controls && <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={props.previous || this.previous}
-        />}
-        {controls && <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={props.next || this.next}
-        />}
+        {controls && (
+          <CarouselControl
+            direction="prev"
+            directionText="Previous"
+            onClickHandler={props.previous || this.previous}
+          />
+        )}
+        {controls && (
+          <CarouselControl
+            direction="next"
+            directionText="Next"
+            onClickHandler={props.next || this.next}
+          />
+        )}
       </Carousel>
     );
   }
@@ -104,7 +138,7 @@ class SliderContainer extends Component {
 
 SliderContainer.propTypes = propTypes;
 SliderContainer.defaultProps = {
-  controls: false,
+  controls: true,
   indicators: true,
   autoPlay: false,
 };

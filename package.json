@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-carousel",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "Carousel based on reactstrap",
   "type": "module",
   "source": "src/index.js",
