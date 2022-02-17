@@ -5,15 +5,11 @@ import { mapToCssModules } from "./utils";
 
 const CarouselCaption = (props) => {
   const {
-    captionHeader,
-    captionText,
     cssModule,
     className,
     button,
     text,
   } = props;
-
-  console.log('aloha => ', button, text)
 
   const classes = mapToCssModules(
     classNames(className, "carousel-caption", "d-flex", "flex-column"),
@@ -28,11 +24,10 @@ const CarouselCaption = (props) => {
 
   return (
     <div className={classes}>
-      <h3>{captionHeader}</h3>
-      <p>{captionText}</p>
       {button && (
-        <button
-          onClick={console.log(`clicou ${button?.link}`)}
+        <a
+          href={button?.link ?? "#"}
+          target="_blank"
           style={{
             background: button?.backgroundColor ?? "#fff",
             borderRadius: button?.borderRadius ?? "0",
@@ -48,11 +43,14 @@ const CarouselCaption = (props) => {
             left: button?.positionY ?? "0",
             padding: "0",
             border: "none",
-            boxShadow: "unset"
+            boxShadow: "unset",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
           {button.text}
-        </button>
+        </a>
       )}
 
       {text && (
@@ -62,7 +60,13 @@ const CarouselCaption = (props) => {
             fontSize: text?.fontSize,
             fontWeight: text?.decoration === "bold" ? "bold" : "normal",
             textDecoration: text?.decoration === "underline" ? "underline" : "none",
-            fontStyle: text?.decoration === "italic" ? "italic" : "normal"
+            fontStyle: text?.decoration === "italic" ? "italic" : "normal",
+            width: text?.width ?? "100%",
+            height: text?.height ?? "40px",
+            position: "absolute",
+            bottom: text?.positionX ?? "0",
+            left: text?.positionY ?? "0",
+            textAlign: text?.alginment ?? "left"
           }}
         >
           {text?.textChildren}
