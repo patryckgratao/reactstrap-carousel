@@ -1,7 +1,7 @@
 {
   "name": "reactstrap-carousel",
-  "version": "0.0.17",
-  "description": "Carousel based on reactstrap",
+  "version": "0.0.18",
+  "description": "Create custom carousels using bootstrap core.",
   "type": "module",
   "source": "src/index.js",
   "exports": {
@@ -27,10 +27,6 @@
     "lint": "eslint src",
     "dtslint": "dtslint types --expectOnly"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/reactstrap/reactstrap.git"
-  },
   "files": [
     "dist",
     "src",
@@ -40,12 +36,11 @@
     "reactstrap",
     "bootstrap",
     "carousel",
-    "slider"
+    "slider",
+    "vtex",
+    "vtex io"
   ],
-  "bugs": {
-    "url": "https://github.com/reactstrap/reactstrap/issues"
-  },
-  "homepage": "https://github.com/reactstrap/reactstrap#readme",
+  "homepage": "https://github.com/patryckgratao",
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@popperjs/core": "^2.6.0",
