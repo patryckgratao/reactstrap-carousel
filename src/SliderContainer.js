@@ -81,17 +81,24 @@ class SliderContainer extends Component {
           onExited={this.onExited}
           key={key}
         >
-          {item?.imgProps && item?.imgProps?.isLinkable ? (
-            <a href={item?.imgProps?.link} target="_blank">
-              <img className="d-block w-100" src={item.src} alt={item.altText} />
+          {item?.image && item?.image?.isLinkable ? (
+            <a href={item?.image?.link} target="_blank">
+              <img
+                className="d-block w-100"
+                src={item?.image?.src}
+                alt={item?.image?.altText}
+                style={{ height: item?.image?.height ?? "auto" }}
+              />
             </a>
           ) : (
-            <img className="d-block w-100" src={item.src} alt={item.altText} />
+            <img
+              className="d-block w-100"
+              src={item?.image?.src}
+              alt={item?.image?.altText}
+              style={{ height: item?.image?.height ?? "auto" }}
+            />
           )}
-          <CarouselCaption
-            buttons={item.buttons}
-            texts={item.texts}
-          />
+          <CarouselCaption buttons={item.buttons} texts={item.texts} />
         </CarouselItem>
       );
     });

@@ -8,7 +8,7 @@ const CarouselCaption = (props) => {
   const { cssModule, className, buttons, texts } = props;
 
   if (!buttons || !texts) {
-    return <></>
+    return null
   }
 
   const classes = mapToCssModules(
